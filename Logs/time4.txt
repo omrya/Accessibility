@@ -1,0 +1,10 @@
+﻿
+
+-- Schedule for TransitLine with ObjectID 166 --
+Route type: Bus
+start_time  end_time  weekdays  trip_id  route_id  service_id
+07:42:50  07:46:51  MTWThF-Su  israelpublictransportation02052018BSOnly:31949704_040518  israelpublictransportation02052018BSOnly:18050  israelpublictransportation02052018BSOnly:59219765
+07:42:50  07:46:51  ------Su  israelpublictransportation02052018BSOnly:32105916_130518  israelpublictransportation02052018BSOnly:18050  israelpublictransportation02052018BSOnly:59219768
+07:42:50  07:46:51  MTWThF-Su  israelpublictransportation02052018BSOnly:31949704_010518  israelpublictransportation02052018BSOnly:18050  israelpublictransportation02052018BSOnly:59219764
+07:42:50  07:46:51  MTWThF-Su  israelpublictransportation02052018BSOnly:31949704_140518  israelpublictransportation02052018BSOnly:18050  israelpublictransportation02052018BSOnly:59219767
+07:42:50  07:46:51  MTWThF-Su  israelpublictransportation02052018BSOnly:31949704_220518  israelpublictransportation02052018BSOnly:18050  israelpublictransportation02052018BSOnly:59219766

@@ -1,0 +1,16 @@
+Running script GenerateTransitLinesAndStops...
+SQLizing the GTFS data...
+(This will take a few minutes for large datasets.)
+Warning! Your calendar.txt file(s) contain(s) non-overlapping date ranges. As a result, your analysis might double count the number of trips available if you are analyzing a generic weekday instead of a specific date.  This is especially likely if the non-overlapping pairs are in the same GTFS dataset.  Please check the date ranges in your calendar.txt file(s). See the User's Guide for further assistance.  Date ranges do not overlap in the following pairs of service_ids: (Showing the first 10 non-overlaps) [[u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181868'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181872'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181873'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181874'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181875'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181876'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181877'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181881'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181882'], [u'israelpublictransportation02052018BSOnly:59181866', u'israelpublictransportation02052018BSOnly:59181885']]
+Generating transit stops feature class.
+Obtaining and processing transit schedule and line information...
+(This will take a few minutes for large datasets.)
+Finished!
+Your SQL table of GTFS data is:
+- C:\Accessibility_data\gis_data\add_gtfs_model\add_gtfs_model.gdb\GTFS.sql
+Your transit stops feature class is:
+- C:\Accessibility_data\gis_data\add_gtfs_model\add_gtfs_model.gdb\bs_network_gtfs_model\Stops
+Your transit lines feature class is:
+- C:\Accessibility_data\gis_data\add_gtfs_model\add_gtfs_model.gdb\bs_network_gtfs_model\TransitLines
+Completed script GenerateTransitLinesAndStops...
+Succeeded at Wed May 09 16:23:48 2018 (Elapsed Time: 32.68 seconds)

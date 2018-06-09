@@ -1,0 +1,101 @@
+Name: gtfs_2017_ND
+Type: Geodatabase-Based Network Dataset
+Version: 10.1
+
+Sources: 
+  Edge Sources: 
+    Connectors_Stops2Streets
+    Streets_UseThisOne
+    TransitLines
+  Junction Sources: 
+    Stops
+    Stops_Snapped2Streets
+
+Connectivity: 
+  Group 1: 
+    Edge Connectivity: 
+      Streets_UseThisOne (End Point)
+    Junction Connectivity - Transfer Groups {2}: 
+      Stops_Snapped2Streets (Override) - Transfer Groups {2}
+  Group 2: 
+    Edge Connectivity: 
+      Connectors_Stops2Streets (End Point)
+    Junction Connectivity - Transfer Groups {1, 3}: 
+      Stops (Honor) - Transfer Groups {3}
+      Stops_Snapped2Streets (Override) - Transfer Groups {1}
+  Group 3: 
+    Edge Connectivity: 
+      TransitLines (End Point)
+    Junction Connectivity - Transfer Groups {2}: 
+      Stops (Honor) - Transfer Groups {2}
+
+Elevation Model: None
+
+Attributes: 
+  Oneway: 
+    Usage Type: Restriction
+    Data Type: Boolean
+    Units Type: Unknown
+    Use by Default: True
+    Parameters: 
+      Restriction Usage (Double) = Prohibited
+    Source Attribute Evaluators: 
+      Streets_UseThisOne (From-To): Field
+          Language: VBScript
+          Expression: [oneway]
+      Streets_UseThisOne (To-From): Field
+          Language: VBScript
+          Expression: [oneway]
+    Default Attribute Evaluators: 
+      Default Edges: Constant = Ignore Restriction
+      Default Junctions: Constant = Ignore Restriction
+  Length: 
+    Usage Type: Cost
+    Data Type: Double
+    Units Type: Meters
+    Use by Default: False
+    Source Attribute Evaluators: 
+      Connectors_Stops2Streets (From-To): Field
+          Language: VBScript
+          Expression: [Shape]
+      Connectors_Stops2Streets (To-From): Field
+          Language: VBScript
+          Expression: [Shape]
+      Streets_UseThisOne (From-To): Field
+          Language: VBScript
+          Expression: [Shape]
+      Streets_UseThisOne (To-From): Field
+          Language: VBScript
+          Expression: [Shape]
+      TransitLines (From-To): Field
+          Language: VBScript
+          Expression: [Shape]
+      TransitLines (To-From): Field
+          Language: VBScript
+          Expression: [Shape]
+    Default Attribute Evaluators: 
+      Default Edges: Constant = 0
+      Default Junctions: Constant = 0
+  TravelTime_WithTransit: 
+    Usage Type: Cost
+    Data Type: Double
+    Units Type: Minutes
+    Use by Default: True
+    Source Attribute Evaluators: 
+      Connectors_Stops2Streets (From-To): Constant = 0.25
+      Connectors_Stops2Streets (To-From): Constant = 0.25
+      Streets_UseThisOne (From-To): Function = Length / 80.4672
+      Streets_UseThisOne (To-From): Function = Length / 80.4672
+      TransitLines (From-To): Transit Evaluator
+      TransitLines (To-From): Constant = -1
+    Default Attribute Evaluators: 
+      Default Edges: Constant = 0
+      Default Junctions: Constant = 0
+
+Directions: 
+  Directions Configured: No
+    -To configure directions at least one edge source must have a mapped street field name
+
+Optimizations: 
+  Service Area Index: Yes
+
