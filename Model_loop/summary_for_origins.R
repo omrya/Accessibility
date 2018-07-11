@@ -4,7 +4,7 @@ library(dplyr)
 
 # Working dir
 setwd("D:\\Data_for_model")
-setwd("D:\\")
+#setwd("D:\\")
 
 # Get shapefile names
 files = list.files(path = "./output/", pattern = "\\.shp$", full.names = TRUE)

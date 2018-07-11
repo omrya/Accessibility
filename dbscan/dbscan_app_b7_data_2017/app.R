@@ -1,5 +1,5 @@
 #2017#
-install.packages("shiny")
+#install.packages("shiny")
 library(magrittr)
 library(shiny)
 library(leaflet)
@@ -24,7 +24,7 @@ ui = bootstrapPage(
   absolutePanel(top = 10, right = 10,
     sliderInput(
       "eps", "Epsilon", 
-      min = 10, max = 1000, value = 20, step = 10
+      min = 10, max = 1000, value = 100, step = 10
     ),
     sliderInput(
       "minPts", "Min. Points", 

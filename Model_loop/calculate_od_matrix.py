@@ -31,7 +31,7 @@ for i in range(0,115):
     arcpy.AddLocations_na("OD Cost Matrix" + str(i), "Origins", "build_lyr", "Name Name #;TargetDestinationCount TargetDestinationCount #;CurbApproach CurbApproach 0;Cutoff_Length Cutoff_Length #;Cutoff_TravelTime_WithTransit Cutoff_TravelTime_WithTransit #", "5000 Meters", "", "Connectors_Stops2Streets SHAPE;Streets_UseThisOne SHAPE;TransitLines SHAPE;Stops SHAPE;Stops_Snapped2Streets SHAPE; NONE", "MATCH_TO_CLOSEST", "APPEND", "NO_SNAP", "5 Meters", "INCLUDE", "Connectors_Stops2Streets #;Streets_UseThisOne #;TransitLines #;Stops #;Stops_Snapped2Streets #;gtfs_2017_ND_Junctions #")
 
     # Process: Add Locations- Destinations
-    arcpy.AddLocations_na("OD Cost Matrix" + str(i), "Destinations", "bldgs_all_centroid", "Name Name #;CurbApproach CurbApproach 0", "5000 Meters", "", "Connectors_Stops2Streets SHAPE;Streets_UseThisOne SHAPE;TransitLines SHAPE;Stops SHAPE;Stops_Snapped2Streets SHAPE;gtfs_2017_ND_Junctions NONE", "MATCH_TO_CLOSEST", "APPEND", "NO_SNAP", "5 Meters", "INCLUDE", "Connectors_Stops2Streets #;Streets_UseThisOne #;TransitLines #;Stops #;Stops_Snapped2Streets #;gtfs_2017_ND_Junctions #")
+    arcpy.AddLocations_na("OD Cost Matrix" + str(i), "Destinations", "bldgs_all_centroid", "Name Name #;CurbApproach CurbApproach 0", "8000 Meters", "", "Connectors_Stops2Streets SHAPE;Streets_UseThisOne SHAPE;TransitLines SHAPE;Stops SHAPE;Stops_Snapped2Streets SHAPE;gtfs_2017_ND_Junctions NONE", "MATCH_TO_CLOSEST", "APPEND", "NO_SNAP", "5 Meters", "INCLUDE", "Connectors_Stops2Streets #;Streets_UseThisOne #;TransitLines #;Stops #;Stops_Snapped2Streets #;gtfs_2017_ND_Junctions #")
 
     #Omry: Check for add location (override)
     
@@ -46,23 +46,24 @@ for i in range(0,115):
         arcpy.SelectData_management("OD Cost Matrix" + str(i), "Lines")
 
         # Process: Copy Features
-        env.workspace = "C:/Data_for_model/output"
+        env.workspace = "D:/Data_for_model/output"
+		
         arcpy.CopyFeatures_management("Lines", "lines_" + str(i) + ".shp", "", "0", "0", "0")
 
         # Delete
         arcpy.Delete_management("OD Cost Matrix" + str(i))
 		
-		# Print
-		#print("success! " + i)
-		#print(datetime.now())
-		#print(i)
+		Print
+		print("success! " + i)
+		print(datetime.now())
+		print(i)
 
     except:
         arcpy.Delete_management("OD Cost Matrix" + str(i))
 		
-		# Print
-		#print("error! " + i)
-		#print(datetime.now())
+		Print
+		print("error! " + i)
+		print(datetime.now())
         continue  
 
 end = datetime.now()
